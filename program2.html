@@ -1,0 +1,59 @@
+<!-- * Write a JavaScript Program to validate the form! * -->
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+
+<body>
+    <h2>Welcome, to MyWebsite!</h2>
+    <form onsubmit="return validate()">
+        <label for="username">Enter YOur Name: </label>
+        <input type="text" name="username" id="username">
+        <br>
+        <label for="useremail">Enter Your Email: </label>
+        <input type="email" name="useremail" id="useremail">
+        <br>
+        <label for="useraddress">Enter Your Address: </label>
+        <br>
+        <textarea name="useraddress" id="useraddress" cols="30" rows="10" wrap="hard"></textarea>
+        <br>
+        <input type="submit" value="Submit">
+        <input type="reset" value="Reset">
+    </form>
+
+    <script>
+        function validate() {
+            var isSubmit = true;
+
+            var username = document.getElementById("username").value;
+            var useremail = document.getElementById("useremail").value;
+            var useraddress = document.getElementById("useraddress").value;
+
+            // Checking the user data!
+            if(username.length == ""){
+                alert("Wrong User Name!"); // ok
+                document.getElementById("username").focus();
+                isSubmit = false;
+            } else if(useremail.length < 5 || useremail.length == ""){
+                alert("Wrong User Email!"); // ok
+                document.getElementById("useremail").focus();
+                isSubmit = false;
+            } else if(useraddress.length < 4 || useraddress.length == ""){
+                alert("Wrong User Address!"); // ok
+                document.getElementById("useraddress").focus();
+                isSubmit = false;
+            }
+            else{
+                console.log("Success!");
+            }
+
+            return isSubmit; // true or false
+        }
+    </script>
+</body>
+
+</html>

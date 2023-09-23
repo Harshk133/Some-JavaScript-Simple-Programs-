@@ -1,0 +1,65 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Number Coloring</title>
+    <style>
+        .number {
+            display: inline-block;
+            padding: 10px;
+            margin: 5px;
+            font-size: 18px;
+            font-weight: bold;
+            text-align: center;
+            width: 40px;
+            height: 40px;
+            border-radius: 50%;
+        }
+    </style>
+</head>
+
+<body>
+    <div id="output"></div>
+    <script>
+        function isPrime(number) {
+            if (number <= 1) {
+                return false;
+            }
+            if (number <= 3) {
+                return true;
+            }
+            if (number % 2 === 0 || number % 3 === 0) {
+                return false;
+            }
+            for (let i = 5; i * i <= number; i += 6) {
+                if (number % i === 0 || number % (i + 2) === 0) {
+                    return false;
+                }
+            }
+            return true;
+        }
+
+        const outputDiv = document.getElementById("output");
+
+        for (let i = 1; i <= 100; i++) {
+            const numberDiv = document.createElement("div");
+            numberDiv.textContent = i;
+            numberDiv.classList.add("number");
+
+            if (i % 2 === 0) {
+                numberDiv.style.backgroundColor = "green"; // Even number
+            } else if (isPrime(i)) {
+                const gradient = `linear-gradient(45deg, orange, red)`;
+                numberDiv.style.background = gradient; // Prime number
+            } else {
+                numberDiv.style.backgroundColor = "blue"; // Odd number
+            }
+
+            outputDiv.appendChild(numberDiv);
+        }
+    </script>
+</body>
+
+</html>

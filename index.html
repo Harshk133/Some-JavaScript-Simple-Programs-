@@ -1,0 +1,27 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Form in JavaScript</title>
+</head>
+<body>
+    <form action="#">
+        Flowers: <input type="radio" name="selection" id="flowers" onclick="handleFlowers()">
+        Fruits: <input type="radio" name="selection" id="fruits" onclick="handleFruits()">
+        
+    </form>
+
+    <div id="output"></div>
+
+    <script>
+        function handleFlowers(){
+            document.getElementById("output").innerHTML = '<select><option value="rose">Rose</option><option value="lotus">Lotus</option><option value="jasmine">Jasmine</option></select>';
+        }
+
+        function handleFruits(){
+            document.getElementById("output").innerHTML = '<select><option value="mango">Mango</option><option value="kivi">Kivi</option><option value="watermelon">Watermelon</option></select>';
+        }
+    </script>
+</body>
+</html>

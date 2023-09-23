@@ -1,0 +1,31 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <title>Dropdown Selection</title>
+</head>
+<body>
+    <form name="myForm">
+        <label for="mySelect">Select an item:</label>
+        <select id="mySelect" onchange="doThis()">
+            <option value="red">Red</option>
+            <option value="orange">Ornage</option>
+            <option value="black">Black</option>
+            <option value="white">White</option>
+            <option value="blue">Blue</option>
+        </select>
+    </form>
+
+    <p id="result">Selected item will be displayed here.</p>
+
+    <script>
+        const selectElement = document.getElementById('mySelect');
+
+        function doThis(){
+            const selectedOption = selectElement.value;
+            alert(selectedOption);
+            // document.body.style.backgroundColor = selectedOption;
+        }
+
+    </script>
+</body>
+</html>

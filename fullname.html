@@ -1,0 +1,30 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Enter Your Full Name!</title>
+</head>
+<body>
+    <form>
+        Enter Your First Name: <input type="text" name="fn" id="fn">
+        <br>
+        Enter Your Middle Name: <input type="text" name="mn" id="mn">
+        <br>
+        Enter Your Last Name: <input type="text" name="ln" id="ln">
+        <br>
+    </form>
+    <button onclick="doThis()">Click here!</button>
+    <div id="output"></div>
+
+    <script>
+        
+        function doThis(){
+            var a = document.getElementById("fn").value;
+            var b = document.getElementById("mn").value;
+            var c = document.getElementById("ln").value;
+            document.getElementById("output").innerHTML = [a, b, c].join(" ");
+        }
+    </script>
+</body>
+</html>

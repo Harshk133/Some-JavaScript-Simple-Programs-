@@ -1,0 +1,96 @@
+<!-- ** Write a Program to validate the form using JavaScript! ** -->
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>JavaScript Form Validation!</title>
+    <style>
+        body {
+            overflow-x: hidden;
+        }
+
+        .active {
+            position: relative;
+            right: -370px;
+            animation: showbyhand 1s 1 ease-in-out forwards;
+        }
+
+        @keyframes showbyhand {
+            0% {
+                right: -380px;
+            }
+
+            50%, 70%{
+                right: 150px;
+            }
+
+            100%{
+                right: 0;
+            }
+        }
+    </style>
+</head>
+
+<body>
+    <h2><tt>Welcome to JavaScript Form Validation Tutorial!!</tt></h2>
+
+    <form name="myForm" onsubmit="return(validate())">
+        <label for="username">Enter Your Name:</label>
+        <input type="text" id="username" name="username" placeholder="Enter Your Name!"> <span id="usernameerror" style="position: relative;
+        right: -390px;">👈 First, Fill this
+            please!</span>
+        <br>
+        <label for="useremail">Enter Your Email:</label>
+        <input type="email" id="useremail" name="useremail" placeholder="Enter Your Email!"> <spna id="useremailerror" style="position: relative;
+        right: -390px;">👈 First, Fill this
+            please!</spna>
+        <br>
+        <label for="useraddress">Enter Your Address:</label>
+        <br> 
+        <textarea name="useraddress" id="useraddress" cols="30" rows="10" wrap="hard"
+            placeholder="Enter Your Address"></textarea> <span id="useraddresserror" style="position: relative;
+            right: -420px;">👈 First, Fill this
+            please!</span>
+        <br>
+        <input type="submit" value="Submit">
+        <input type="reset" value="Reset">
+    </form>
+
+
+    <script>
+        function validate() {
+            var isSubmit = true; // By default true Form will submit
+
+            var username = document.getElementById("username").value;
+            var useremail = document.getElementById("useremail").value;
+            var useraddress = document.getElementById("useraddress").value;
+            // [username, useremail, useraddress].forEach(console.log);
+
+            if (username.length == "") {
+                // alert("Wrong User Name!");
+                document.getElementById("usernameerror").classList.add("active");
+                document.getElementById("username").focus();
+                isSubmit = false;
+            } else if (useremail.length = "" || useremail.length < 5) {
+                // alert("Wrong User Email!");
+                document.getElementById("useremailerror").classList.add("active");
+                document.getElementById("useremail").focus();
+                isSubmit = false;
+            } else if (useraddress.length < 15 || useraddress.length == "") {
+                // alert("Wrong User Address!");
+                document.getElementById("useraddresserror").classList.add("active");
+                document.getElementById("useraddress").focus();
+                isSubmit = false;
+            }
+            else {
+                [username, useremail, useraddress].forEach(console.log);
+            }
+
+            return isSubmit; // Form will submit if value is true!!
+        }
+    </script>
+</body>
+
+</html>
